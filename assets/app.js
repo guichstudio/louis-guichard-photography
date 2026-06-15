@@ -97,7 +97,7 @@
     imgs.forEach(function (im, i) {
       var fig = document.createElement("figure");
       var img = document.createElement("img");
-      img.src = im.src;
+      img.src = im.thumb || im.src;
       img.alt = project.title + " " + (i + 1);
       img.loading = "lazy";
       img.decoding = "async";
