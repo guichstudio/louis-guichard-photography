@@ -40,7 +40,7 @@ window.PROJECTS = [
     "slug": "hawaii",
     "title": "Hawaii",
     "subtitle": "Pacific light",
-    "cover": "assets/img/hawaii/hawaii-01.jpg",
+    "cover": "assets/img/covers/hawaii.jpg",
     "count": 20
   }
 ];

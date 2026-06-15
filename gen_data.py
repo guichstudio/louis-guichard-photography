@@ -21,6 +21,7 @@ cover_overrides = {
     "black-and-white": "assets/img/covers/black-and-white.jpg",
     "life":            "assets/img/covers/life.jpg",
     "on-the-road":     "assets/img/covers/on-the-road.jpg",
+    "hawaii":          "assets/img/covers/hawaii.jpg",
 }
 
 projects = []
