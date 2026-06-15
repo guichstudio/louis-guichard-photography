@@ -15,9 +15,12 @@ meta = {
 }
 order = ["light", "black-and-white", "life", "on-the-road", "hawaii"]
 
-# Hand-picked hover covers (override the default first-image cover)
+# Hand-picked covers (override the default first-image cover)
 cover_overrides = {
-    "life": "assets/img/covers/life.jpg",
+    "light":           "assets/img/covers/light.jpg",
+    "black-and-white": "assets/img/covers/black-and-white.jpg",
+    "life":            "assets/img/covers/life.jpg",
+    "on-the-road":     "assets/img/covers/on-the-road.jpg",
 }
 
 projects = []

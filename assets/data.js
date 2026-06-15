@@ -12,14 +12,14 @@ window.PROJECTS = [
     "slug": "light",
     "title": "Light",
     "subtitle": "Light & geometries",
-    "cover": "assets/img/light/light-01.jpg",
+    "cover": "assets/img/covers/light.jpg",
     "count": 13
   },
   {
     "slug": "black-and-white",
     "title": "Black & White",
     "subtitle": "Grain & shadow",
-    "cover": "assets/img/black-and-white/bw-01.jpg",
+    "cover": "assets/img/covers/black-and-white.jpg",
     "count": 18
   },
   {
@@ -33,7 +33,7 @@ window.PROJECTS = [
     "slug": "on-the-road",
     "title": "On the Road",
     "subtitle": "Setting out on adventures",
-    "cover": "assets/img/on-the-road/road-01.jpg",
+    "cover": "assets/img/covers/on-the-road.jpg",
     "count": 30
   },
   {
