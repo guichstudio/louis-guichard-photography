@@ -15,13 +15,19 @@ meta = {
 }
 order = ["light", "black-and-white", "life", "on-the-road", "hawaii"]
 
+# Hand-picked hover covers (override the default first-image cover)
+cover_overrides = {
+    "life": "assets/img/covers/life.jpg",
+}
+
 projects = []
 for slug in order:
     imgs = man.get(slug, [])
     title, sub = meta[slug]
+    cover = cover_overrides.get(slug) or (imgs[0]["src"] if imgs else "")
     projects.append({
         "slug": slug, "title": title, "subtitle": sub,
-        "cover": imgs[0]["src"] if imgs else "", "count": len(imgs),
+        "cover": cover, "count": len(imgs),
     })
 
 site = {

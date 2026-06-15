@@ -26,7 +26,7 @@ window.PROJECTS = [
     "slug": "life",
     "title": "Life",
     "subtitle": "Fragments of the everyday",
-    "cover": "assets/img/life/life-01.jpg",
+    "cover": "assets/img/covers/life.jpg",
     "count": 39
   },
   {

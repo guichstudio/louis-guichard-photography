@@ -48,32 +48,32 @@ img { display: block; max-width: 100%; }
   padding: 40px 24px;
 }
 .splash h1 {
-  font-size: clamp(30px, 7vw, 64px);
+  font-size: clamp(40px, 9.5vw, 96px);
   font-weight: 300;
   letter-spacing: .22em;
   text-transform: uppercase;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
 }
 .splash .descriptor {
-  max-width: 460px;
-  font-size: 13px;
+  max-width: 520px;
+  font-size: 15px;
   letter-spacing: .04em;
   color: var(--muted);
-  margin: 0 auto 44px;
+  margin: 0 auto 52px;
 }
 .enter {
   display: inline-block;
-  font-size: 12px;
-  letter-spacing: .35em;
+  font-size: 15px;
+  letter-spacing: .4em;
   text-transform: uppercase;
-  padding: 14px 38px;
+  padding: 20px 60px;
   border: 1px solid var(--fg);
   transition: background .4s var(--ease), color .4s var(--ease);
 }
 .enter:hover { background: var(--fg); color: var(--bg); }
 
 .socials {
-  margin-top: 46px;
+  margin-top: 50px;
   display: flex;
   gap: 22px;
   align-items: center;
@@ -86,6 +86,30 @@ img { display: block; max-width: 100%; }
   transition: color .3s var(--ease);
 }
 .socials a:hover { color: var(--fg); }
+
+/* ---- splash with background photo (white text on dark scrim) ---- */
+.splash--photo { position: relative; color: #fff; overflow: hidden; }
+.splash-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("img/home-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.splash-scrim {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.52));
+  z-index: 1;
+}
+.splash-content { position: relative; z-index: 2; }
+.splash--photo h1 { color: #fff; text-shadow: 0 1px 30px rgba(0,0,0,.35); }
+.splash--photo .descriptor { color: rgba(255,255,255,.86); }
+.splash--photo .enter { border-color: rgba(255,255,255,.85); color: #fff; }
+.splash--photo .enter:hover { background: #fff; color: #111; border-color: #fff; }
+.splash--photo .socials a { color: rgba(255,255,255,.7); }
+.splash--photo .socials a:hover { color: #fff; }
 
 /* ===================================================== */
 /* HEADER / NAV (inner pages)                            */
