@@ -5,6 +5,24 @@
   var PROJECTS = window.PROJECTS || [];
   var GALLERIES = window.GALLERIES || {};
 
+  /* ---------- shared navigation (single source) ---------- */
+  var NAV = [
+    { href: "work.html", label: "Work" },
+    { href: "about.html", label: "About" },
+    { href: "exhibitions.html", label: "Exhibitions" },
+    { href: "press.html", label: "Press" },
+    { href: "books.html", label: "Books" },
+    { href: "contact.html", label: "Contact" }
+  ];
+  function buildNav() {
+    var cur = location.pathname.split("/").pop() || "index.html";
+    if (cur === "gallery.html") cur = "work.html"; // galleries live under Work
+    var html = NAV.map(function (n) {
+      return '<a href="' + n.href + '"' + (n.href === cur ? ' class="active"' : '') + '>' + n.label + '</a>';
+    }).join("");
+    document.querySelectorAll(".site-nav").forEach(function (nav) { nav.innerHTML = html; });
+  }
+
   /* ---------- mobile nav toggle ---------- */
   function initNav() {
     var btn = document.querySelector(".nav-toggle");
@@ -183,6 +201,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     hydrateChrome();
+    buildNav();
     initNav();
     initProtection();
     renderWork();
