@@ -31,23 +31,23 @@
 
   /* ---------- WORK INDEX ---------- */
   function renderWork() {
-    var list = document.getElementById("work-list");
-    if (!list) return;
-    var bg = document.getElementById("work-bg");
+    var grid = document.getElementById("work-grid");
+    if (!grid) return;
     PROJECTS.forEach(function (p) {
       var a = document.createElement("a");
-      a.className = "project-link";
+      a.className = "index-item";
       a.href = "gallery.html?p=" + encodeURIComponent(p.slug);
-      a.innerHTML = '<span class="ptitle">' + p.title + '</span>' +
-                    '<span class="psub">' + (p.subtitle || "") + '</span>';
-      if (bg && p.cover) {
-        a.addEventListener("mouseenter", function () {
-          bg.style.backgroundImage = 'url("' + p.cover + '")';
-          bg.classList.add("show");
-        });
-        a.addEventListener("mouseleave", function () { bg.classList.remove("show"); });
-      }
-      list.appendChild(a);
+      var img = document.createElement("img");
+      img.src = p.cover;
+      img.alt = p.title;
+      img.loading = "lazy";
+      img.decoding = "async";
+      var ov = document.createElement("div");
+      ov.className = "index-overlay";
+      ov.innerHTML = '<span class="index-title">' + p.title + '</span>';
+      a.appendChild(img);
+      a.appendChild(ov);
+      grid.appendChild(a);
     });
   }
 
