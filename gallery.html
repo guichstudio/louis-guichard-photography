@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Louis Guichard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" data-site-name>Louis Guichard</a>
+    <button class="nav-toggle" aria-label="Menu">Menu</button>
+    <nav class="site-nav">
+      <a href="work.html" class="active">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="gallery-head">
+      <h1 id="gallery-title">&nbsp;</h1>
+      <p id="gallery-sub"></p>
+    </div>
+    <section class="gallery" id="gallery"><!-- images injected by app.js --></section>
+    <nav class="gallery-nav" id="gallery-nav"></nav>
+  </main>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

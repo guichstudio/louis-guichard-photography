@@ -1,0 +1,289 @@
+/* ===== Louis Guichard — Photography ===== */
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #8a8a8a;
+  --line: #e8e8e8;
+  --maxw: 1040px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ---------- shared type ---------- */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===================================================== */
+/* SPLASH (index.html)                                   */
+/* ===================================================== */
+.splash {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+}
+.splash h1 {
+  font-size: clamp(30px, 7vw, 64px);
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+.splash .descriptor {
+  max-width: 460px;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  margin: 0 auto 44px;
+}
+.enter {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  padding: 14px 38px;
+  border: 1px solid var(--fg);
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+.enter:hover { background: var(--fg); color: var(--bg); }
+
+.socials {
+  margin-top: 46px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.socials a {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease);
+}
+.socials a:hover { color: var(--fg); }
+
+/* ===================================================== */
+/* HEADER / NAV (inner pages)                            */
+/* ===================================================== */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+  background: rgba(255,255,255,.86);
+  backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .brand {
+  font-size: 14px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.site-nav { display: flex; gap: 26px; }
+.site-nav a {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease);
+}
+.site-nav a:hover, .site-nav a.active { color: var(--fg); }
+
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; font-size: 11px; letter-spacing:.2em; text-transform:uppercase; color: var(--fg); }
+
+main { padding-top: 70px; }
+
+/* ===================================================== */
+/* WORK INDEX (work.html)                                */
+/* ===================================================== */
+.work-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity .8s var(--ease);
+}
+.work-bg.show { opacity: .14; }
+
+.work-list {
+  min-height: calc(100vh - 70px);
+  min-height: calc(100svh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 60px 24px;
+}
+.work-list .lead {
+  margin-bottom: 30px;
+}
+.project-link {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+.project-link .ptitle {
+  font-size: clamp(22px, 4.4vw, 38px);
+  font-weight: 300;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: opacity .35s var(--ease), letter-spacing .45s var(--ease);
+  opacity: .55;
+}
+.project-link:hover .ptitle { opacity: 1; letter-spacing: .2em; }
+.project-link .psub {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.project-link:hover .psub { opacity: 1; }
+
+/* ===================================================== */
+/* GALLERY (gallery.html)                                */
+/* ===================================================== */
+.gallery-head {
+  text-align: center;
+  padding: 60px 24px 30px;
+}
+.gallery-head h1 {
+  font-size: clamp(26px, 5vw, 44px);
+  font-weight: 300;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.gallery-head p { color: var(--muted); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; margin: 0; }
+
+.gallery {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 7vw, 96px);
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  background: #f3f3f3;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.gallery img.in { opacity: 1; transform: none; }
+
+.gallery-nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px 90px;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted);
+}
+.gallery-nav a { transition: color .3s var(--ease); }
+.gallery-nav a:hover { color: var(--fg); }
+
+/* ===================================================== */
+/* TEXT PAGES (about / contact)                          */
+/* ===================================================== */
+.page {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 90px 24px 120px;
+}
+.page h1 {
+  font-size: clamp(24px, 4.4vw, 36px);
+  font-weight: 300;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 0 0 26px;
+}
+.page p { font-size: 15px; color: #333; margin: 0 0 18px; }
+.page a.link { border-bottom: 1px solid var(--line); }
+.page a.link:hover { border-color: var(--fg); }
+
+/* ===================================================== */
+/* LIGHTBOX                                              */
+/* ===================================================== */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(255,255,255,.98);
+  display: none;
+  align-items: center; justify-content: center;
+  cursor: zoom-out;
+  padding: 30px;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; }
+.lightbox .lb-close { position: absolute; top: 22px; right: 28px; font-size: 22px; line-height: 1; color: var(--fg); cursor: pointer; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 34px 24px;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.site-footer a:hover { color: var(--fg); }
+
+/* ===================================================== */
+/* RESPONSIVE                                            */
+/* ===================================================== */
+@media (max-width: 640px) {
+  .site-header { padding: 16px 20px; }
+  .nav-toggle { display: block; }
+  .site-nav {
+    position: fixed; top: 53px; left: 0; right: 0;
+    flex-direction: column; gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s var(--ease);
+  }
+  .site-nav.open { max-height: 320px; }
+  .site-nav a { padding: 16px 20px; border-top: 1px solid var(--line); }
+  main { padding-top: 54px; }
+  .gallery { gap: 36px; }
+}
