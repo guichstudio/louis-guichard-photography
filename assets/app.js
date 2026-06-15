@@ -75,6 +75,7 @@
     if (h) h.textContent = project.title;
     if (s) s.textContent = project.subtitle || "";
 
+    currentImages = imgs;
     imgs.forEach(function (im, i) {
       var fig = document.createElement("figure");
       var img = document.createElement("img");
@@ -82,8 +83,7 @@
       img.alt = project.title + " — " + (i + 1);
       img.loading = "lazy";
       img.decoding = "async";
-      if (im.w && im.h) { img.width = im.w; img.height = im.h; }
-      img.addEventListener("click", function () { openLightbox(im.src); });
+      fig.addEventListener("click", function () { openLightbox(i); });
       fig.appendChild(img);
       wrap.appendChild(fig);
     });
@@ -104,21 +104,52 @@
       '<a href="gallery.html?p=' + next.slug + '">' + next.title + ' &rarr;</a>';
   }
 
-  /* ---------- LIGHTBOX ---------- */
-  var lb, lbImg;
+  /* ---------- LIGHTBOX (dark slideshow) ---------- */
+  var lb, lbImg, lbCount, currentImages = [], lbIndex = 0;
   function ensureLightbox() {
     if (lb) return;
     lb = document.createElement("div");
     lb.className = "lightbox";
-    lb.innerHTML = '<span class="lb-close">&times;</span><img alt="">';
+    lb.innerHTML =
+      '<button class="lb-btn lb-close" aria-label="Close">&times;</button>' +
+      '<button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
+      '<div class="lb-stage"><img alt=""></div>' +
+      '<button class="lb-btn lb-next" aria-label="Next">&#8250;</button>' +
+      '<div class="lb-count"></div>';
     document.body.appendChild(lb);
     lbImg = lb.querySelector("img");
-    lb.addEventListener("click", closeLightbox);
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLightbox(); });
+    lbCount = lb.querySelector(".lb-count");
+    lb.querySelector(".lb-close").addEventListener("click", closeLightbox);
+    lb.querySelector(".lb-prev").addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
+    lb.querySelector(".lb-next").addEventListener("click", function (e) { e.stopPropagation(); step(1); });
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb || (e.target.classList && e.target.classList.contains("lb-stage"))) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
+    });
   }
-  function openLightbox(src) {
+  function showImage() {
+    var im = currentImages[lbIndex];
+    if (!im) return;
+    lbImg.classList.remove("ready");
+    lbImg.onload = function () { lbImg.classList.add("ready"); };
+    lbImg.src = im.src;
+    if (lbImg.complete) lbImg.classList.add("ready");
+    if (lbCount) lbCount.textContent = (lbIndex + 1) + " / " + currentImages.length;
+  }
+  function step(d) {
+    if (!currentImages.length) return;
+    lbIndex = (lbIndex + d + currentImages.length) % currentImages.length;
+    showImage();
+  }
+  function openLightbox(index) {
     ensureLightbox();
-    lbImg.src = src;
+    lbIndex = index;
+    showImage();
     lb.classList.add("open");
     document.body.style.overflow = "hidden";
   }
@@ -126,6 +157,16 @@
     if (!lb) return;
     lb.classList.remove("open");
     document.body.style.overflow = "";
+  }
+
+  /* ---------- image protection (deterrent, like Squarespace) ---------- */
+  function initProtection() {
+    document.addEventListener("contextmenu", function (e) {
+      if (e.target && e.target.tagName === "IMG") e.preventDefault();
+    });
+    document.addEventListener("dragstart", function (e) {
+      if (e.target && e.target.tagName === "IMG") e.preventDefault();
+    });
   }
 
   /* ---------- inject brand/footer/socials from SITE ---------- */
@@ -143,6 +184,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     hydrateChrome();
     initNav();
+    initProtection();
     renderWork();
     renderGallery();
   });
