@@ -203,7 +203,7 @@
       var key = (form.querySelector('[name="access_key"]') || {}).value || "";
       if (key.indexOf("YOUR_") === 0 || !key) {
         status.className = "form-status err";
-        status.textContent = "The form isn't configured yet. Please email guich.studio@gmail.com.";
+        status.textContent = "The form isn't configured yet. Please email hello@louisguichard.com.";
         return;
       }
       var orig = btn.textContent;
@@ -223,12 +223,12 @@
             form.reset();
           } else {
             status.className = "form-status err";
-            status.textContent = "Something went wrong. Please email guich.studio@gmail.com.";
+            status.textContent = "Something went wrong. Please email hello@louisguichard.com.";
           }
         })
         .catch(function () {
           status.className = "form-status err";
-          status.textContent = "Network error. Please email guich.studio@gmail.com.";
+          status.textContent = "Network error. Please email hello@louisguichard.com.";
         })
         .then(function () { btn.disabled = false; btn.textContent = orig; });
     });

@@ -38,7 +38,7 @@ site = {
     "name": "Louis Guichard",
     "tagline": "Photographer",
     "intro": "Photographs by Louis Guichard.",
-    "email": "guich.studio@gmail.com",
+    "email": "hello@louisguichard.com",
     "instagram": "https://www.instagram.com/",
     "facebook": "https://www.facebook.com/",
 }
