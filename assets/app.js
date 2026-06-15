@@ -1,4 +1,4 @@
-/* Louis Guichard — shared front-end logic. Data comes from assets/data.js */
+/* Louis Guichard, shared front-end logic. Data comes from assets/data.js */
 (function () {
   "use strict";
   var SITE = window.SITE || {};
@@ -69,7 +69,7 @@
       return;
     }
 
-    document.title = project.title + " — " + (SITE.name || "");
+    document.title = project.title + " · " + (SITE.name || "");
     var h = document.getElementById("gallery-title");
     var s = document.getElementById("gallery-sub");
     if (h) h.textContent = project.title;
@@ -80,7 +80,7 @@
       var fig = document.createElement("figure");
       var img = document.createElement("img");
       img.src = im.src;
-      img.alt = project.title + " — " + (i + 1);
+      img.alt = project.title + " " + (i + 1);
       img.loading = "lazy";
       img.decoding = "async";
       fig.addEventListener("click", function () { openLightbox(i); });

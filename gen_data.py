@@ -44,7 +44,7 @@ site = {
 }
 
 with open(os.path.join(PROJ, "assets", "data.js"), "w") as f:
-    f.write("// Generated from manifest.json — do not edit by hand.\n")
+    f.write("// Generated from manifest.json. Do not edit by hand.\n")
     f.write("window.SITE = " + json.dumps(site, ensure_ascii=False, indent=2) + ";\n")
     f.write("window.PROJECTS = " + json.dumps(projects, ensure_ascii=False, indent=2) + ";\n")
     f.write("window.GALLERIES = " + json.dumps(man, ensure_ascii=False) + ";\n")

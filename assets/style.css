@@ -1,4 +1,4 @@
-/* ===== Louis Guichard — Photography ===== */
+/* ===== Louis Guichard Photography ===== */
 :root {
   --bg: #ffffff;
   --fg: #111111;
@@ -229,7 +229,7 @@ main { padding-top: 70px; }
   cursor: pointer;
   background: #f0f0f0;
 }
-/* transparent cover layer — deters drag / "save image as" (hits the layer, not the img) */
+/* transparent cover layer: deters drag / "save image as" (hits the layer, not the img) */
 .gallery figure::after {
   content: "";
   position: absolute;
@@ -363,7 +363,7 @@ main { padding-top: 70px; }
   .gallery { grid-template-columns: 1fr; gap: 6px; padding: 8px 8px 60px; }
 }
 
-/* touch / small screens have no hover — show series titles by default */
+/* touch / small screens have no hover: show series titles by default */
 @media (hover: none), (max-width: 640px) {
   .index-grid { grid-template-columns: 1fr; gap: 8px; padding: 8px; }
   .index-item, .index-item:last-child:nth-child(odd) { aspect-ratio: 3 / 2; }

@@ -1,4 +1,4 @@
-// Generated from manifest.json — do not edit by hand.
+// Generated from manifest.json. Do not edit by hand.
 window.SITE = {
   "name": "Louis Guichard",
   "tagline": "Photographer",
