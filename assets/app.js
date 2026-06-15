@@ -187,6 +187,53 @@
     });
   }
 
+  /* ---------- contact form (Web3Forms, no backend needed) ---------- */
+  function initContactForm() {
+    var form = document.getElementById("contact-form");
+    if (!form) return;
+    var status = document.getElementById("form-status");
+    var btn = document.getElementById("contact-submit");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        if (form.reportValidity) form.reportValidity();
+        return;
+      }
+      var key = (form.querySelector('[name="access_key"]') || {}).value || "";
+      if (key.indexOf("YOUR_") === 0 || !key) {
+        status.className = "form-status err";
+        status.textContent = "The form isn't configured yet. Please email guich.studio@gmail.com.";
+        return;
+      }
+      var orig = btn.textContent;
+      btn.disabled = true; btn.textContent = "Sending…";
+      status.className = "form-status"; status.textContent = "";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.success) {
+            status.className = "form-status ok";
+            status.textContent = "Thank you. Your message has been sent.";
+            form.reset();
+          } else {
+            status.className = "form-status err";
+            status.textContent = "Something went wrong. Please email guich.studio@gmail.com.";
+          }
+        })
+        .catch(function () {
+          status.className = "form-status err";
+          status.textContent = "Network error. Please email guich.studio@gmail.com.";
+        })
+        .then(function () { btn.disabled = false; btn.textContent = orig; });
+    });
+  }
+
   /* ---------- inject brand/footer/socials from SITE ---------- */
   function hydrateChrome() {
     document.querySelectorAll("[data-site-name]").forEach(function (e) { e.textContent = SITE.name || ""; });
@@ -204,6 +251,7 @@
     buildNav();
     initNav();
     initProtection();
+    initContactForm();
     renderWork();
     renderGallery();
   });

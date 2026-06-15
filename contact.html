@@ -14,10 +14,44 @@
   </header>
 
   <main>
-    <article class="page">
+    <article class="page page--contact">
       <h1>Contact</h1>
-      <p>For prints, commissions, press or collaborations:</p>
-      <p><a class="link" data-site-email href="mailto:">guich.studio@gmail.com</a></p>
+      <p class="contact-intro">Louis Guichard's photographs are exhibited and sold to collectors, designers, institutions and private collections worldwide. For information on purchasing an original print, or for any enquiry, write to <a class="link" data-site-email href="mailto:">guich.studio@gmail.com</a> or use the form below.</p>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="from_name" value="louisguichard.com">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="first_name">First name</label>
+            <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="last_name">Last name</label>
+            <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="enter" id="contact-submit">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
     </article>
   </main>
 
