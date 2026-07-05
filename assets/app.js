@@ -179,8 +179,18 @@
 
   /* ---------- image protection (deterrent, like Squarespace) ---------- */
   function initProtection() {
+    // Block the right-click / long-press menu over any photo or its cover layer.
+    // We match images directly and the protected containers (gallery figures,
+    // work index items, lightbox stage) so the menu is suppressed even when the
+    // transparent overlay is the actual event target.
+    function isProtected(el) {
+      return !!(el && el.closest &&
+        el.closest("img, figure, .index-item, .lb-stage, .lightbox"));
+    }
     document.addEventListener("contextmenu", function (e) {
-      if (e.target && e.target.tagName === "IMG") e.preventDefault();
+      if (e.target && (e.target.tagName === "IMG" || isProtected(e.target))) {
+        e.preventDefault();
+      }
     });
     document.addEventListener("dragstart", function (e) {
       if (e.target && e.target.tagName === "IMG") e.preventDefault();
