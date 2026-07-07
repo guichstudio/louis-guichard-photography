@@ -12,8 +12,9 @@ meta = {
     "life":            ("Life", "Fragments of the everyday"),
     "on-the-road":     ("On the Road", "Setting out on adventures"),
     "hawaii":          ("Hawaii", "Pacific light"),
+    "sky":             ("Sky", "Reaching upward"),
 }
-order = ["light", "black-and-white", "life", "on-the-road", "hawaii"]
+order = ["light", "black-and-white", "life", "on-the-road", "hawaii", "sky"]
 
 # Hand-picked covers (override the default first-image cover)
 cover_overrides = {

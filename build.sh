@@ -5,8 +5,8 @@
 #   ./build.sh "/path/to/source/photos"
 #
 # The source folder must contain sub-folders named exactly:
-#   BW  Hawai  Life  Light  road
-# (these map to the galleries Black & White / Hawaii / Life / Light / On the Road)
+#   BW  Hawai  Life  Light  road  sky
+# (these map to the galleries Black & White / Hawaii / Life / Light / On the Road / Sky)
 #
 # Each photo produces two files: a full version (long edge 1600px, q65) used by
 # the lightbox, and a light thumbnail (900px, q60) in <slug>/thumbs/ used by the
@@ -21,7 +21,7 @@ MANIFEST="$PROJ/assets/manifest.json"
 if [ ! -d "$SRC" ]; then echo "Source folder not found: $SRC"; exit 1; fi
 command -v sips >/dev/null || { echo "sips required (macOS)"; exit 1; }
 
-declare -a MAP=("BW:black-and-white:bw" "Hawai:hawaii:hawaii" "Life:life:life" "Light:light:light" "road:on-the-road:road")
+declare -a MAP=("BW:black-and-white:bw" "Hawai:hawaii:hawaii" "Life:life:life" "Light:light:light" "road:on-the-road:road" "sky:sky:sky")
 
 echo "{" > "$MANIFEST"
 first_proj=1
