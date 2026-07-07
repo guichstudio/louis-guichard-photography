@@ -23,6 +23,7 @@ cover_overrides = {
     "life":            "assets/img/covers/life.jpg",
     "on-the-road":     "assets/img/covers/on-the-road.jpg",
     "hawaii":          "assets/img/covers/hawaii.jpg",
+    "sky":             "assets/img/covers/sky.jpg",
 }
 
 projects = []

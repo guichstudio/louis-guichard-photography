@@ -47,7 +47,7 @@ window.PROJECTS = [
     "slug": "sky",
     "title": "Sky",
     "subtitle": "Reaching upward",
-    "cover": "assets/img/sky/sky-01.jpg",
+    "cover": "assets/img/covers/sky.jpg",
     "count": 14
   }
 ];
