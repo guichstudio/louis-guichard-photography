@@ -12,9 +12,9 @@ meta = {
     "life":            ("Life", "Fragments of the everyday"),
     "on-the-road":     ("On the Road", "Setting out on adventures"),
     "hawaii":          ("Hawaii", "Pacific light"),
-    "sky":             ("Sky", "Reaching upward"),
+    "nature":          ("Nature", "Wild and quiet"),
 }
-order = ["light", "black-and-white", "life", "on-the-road", "hawaii", "sky"]
+order = ["light", "black-and-white", "life", "on-the-road", "hawaii", "nature"]
 
 # Hand-picked covers (override the default first-image cover)
 cover_overrides = {
@@ -23,7 +23,7 @@ cover_overrides = {
     "life":            "assets/img/covers/life.jpg",
     "on-the-road":     "assets/img/covers/on-the-road.jpg",
     "hawaii":          "assets/img/covers/hawaii.jpg",
-    "sky":             "assets/img/covers/sky.jpg",
+    "nature":          "assets/img/covers/nature.jpg",
 }
 
 projects = []

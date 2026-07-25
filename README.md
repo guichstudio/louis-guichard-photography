@@ -10,7 +10,7 @@ Structure inspired by the classic splash → series-index → gallery flow.
   slideshow (arrows, counter, keyboard ←/→/Esc, loop)
 - `about.html`, `contact.html`
 
-Galleries: **Light**, **Black & White**, **Life**, **On the Road**, **Hawaii**.
+Galleries: **Light**, **Black & White**, **Life**, **On the Road**, **Hawaii**, **Nature**.
 
 ## Run locally
 Open via a local server (needed so `data.js` / images load correctly):
@@ -23,7 +23,7 @@ python3 -m http.server 8080
 
 ## Replace the photos
 1. Put your new photos in a folder with these sub-folders:
-   `BW` `Hawai` `Life` `Light` `road`
+   `BW` `Hawai` `Life` `Light` `road` `nature`
 2. Regenerate (resizes to 1600px, JPEG q65, rebuilds `assets/data.js`):
 
 ```bash
