@@ -14,18 +14,28 @@
     {"src":"assets/img/black-and-white/bw-12.jpg","thumb":"assets/img/black-and-white/thumbs/bw-12.jpg","w":1600,"h":1061},
     {"src":"assets/img/black-and-white/bw-13.jpg","thumb":"assets/img/black-and-white/thumbs/bw-13.jpg","w":1060,"h":1600},
     {"src":"assets/img/black-and-white/bw-14.jpg","thumb":"assets/img/black-and-white/thumbs/bw-14.jpg","w":1065,"h":1600},
-    {"src":"assets/img/black-and-white/bw-15.jpg","thumb":"assets/img/black-and-white/thumbs/bw-15.jpg","w":1061,"h":1600},
+    {"src":"assets/img/black-and-white/bw-15.jpg","thumb":"assets/img/black-and-white/thumbs/bw-15.jpg","w":1065,"h":1600},
     {"src":"assets/img/black-and-white/bw-16.jpg","thumb":"assets/img/black-and-white/thumbs/bw-16.jpg","w":1065,"h":1600},
     {"src":"assets/img/black-and-white/bw-17.jpg","thumb":"assets/img/black-and-white/thumbs/bw-17.jpg","w":1065,"h":1600},
-    {"src":"assets/img/black-and-white/bw-18.jpg","thumb":"assets/img/black-and-white/thumbs/bw-18.jpg","w":1067,"h":1600},
+    {"src":"assets/img/black-and-white/bw-18.jpg","thumb":"assets/img/black-and-white/thumbs/bw-18.jpg","w":1600,"h":1065},
     {"src":"assets/img/black-and-white/bw-19.jpg","thumb":"assets/img/black-and-white/thumbs/bw-19.jpg","w":1065,"h":1600},
-    {"src":"assets/img/black-and-white/bw-20.jpg","thumb":"assets/img/black-and-white/thumbs/bw-20.jpg","w":1065,"h":1600},
-    {"src":"assets/img/black-and-white/bw-21.jpg","thumb":"assets/img/black-and-white/thumbs/bw-21.jpg","w":1075,"h":1600},
-    {"src":"assets/img/black-and-white/bw-22.jpg","thumb":"assets/img/black-and-white/thumbs/bw-22.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-20.jpg","thumb":"assets/img/black-and-white/thumbs/bw-20.jpg","w":1061,"h":1600},
+    {"src":"assets/img/black-and-white/bw-21.jpg","thumb":"assets/img/black-and-white/thumbs/bw-21.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-22.jpg","thumb":"assets/img/black-and-white/thumbs/bw-22.jpg","w":1600,"h":1065},
     {"src":"assets/img/black-and-white/bw-23.jpg","thumb":"assets/img/black-and-white/thumbs/bw-23.jpg","w":1600,"h":1065},
-    {"src":"assets/img/black-and-white/bw-24.jpg","thumb":"assets/img/black-and-white/thumbs/bw-24.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-24.jpg","thumb":"assets/img/black-and-white/thumbs/bw-24.jpg","w":1600,"h":1065},
     {"src":"assets/img/black-and-white/bw-25.jpg","thumb":"assets/img/black-and-white/thumbs/bw-25.jpg","w":1600,"h":1065},
-    {"src":"assets/img/black-and-white/bw-26.jpg","thumb":"assets/img/black-and-white/thumbs/bw-26.jpg","w":1065,"h":1600}
+    {"src":"assets/img/black-and-white/bw-26.jpg","thumb":"assets/img/black-and-white/thumbs/bw-26.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-27.jpg","thumb":"assets/img/black-and-white/thumbs/bw-27.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-28.jpg","thumb":"assets/img/black-and-white/thumbs/bw-28.jpg","w":1067,"h":1600},
+    {"src":"assets/img/black-and-white/bw-29.jpg","thumb":"assets/img/black-and-white/thumbs/bw-29.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-30.jpg","thumb":"assets/img/black-and-white/thumbs/bw-30.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-31.jpg","thumb":"assets/img/black-and-white/thumbs/bw-31.jpg","w":1075,"h":1600},
+    {"src":"assets/img/black-and-white/bw-32.jpg","thumb":"assets/img/black-and-white/thumbs/bw-32.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-33.jpg","thumb":"assets/img/black-and-white/thumbs/bw-33.jpg","w":1600,"h":1065},
+    {"src":"assets/img/black-and-white/bw-34.jpg","thumb":"assets/img/black-and-white/thumbs/bw-34.jpg","w":1065,"h":1600},
+    {"src":"assets/img/black-and-white/bw-35.jpg","thumb":"assets/img/black-and-white/thumbs/bw-35.jpg","w":1600,"h":1065},
+    {"src":"assets/img/black-and-white/bw-36.jpg","thumb":"assets/img/black-and-white/thumbs/bw-36.jpg","w":1065,"h":1600}
   ]
 ,
   "hawaii": [
@@ -188,6 +198,7 @@
     {"src":"assets/img/nature/nature-21.jpg","thumb":"assets/img/nature/thumbs/nature-21.jpg","w":1600,"h":1065},
     {"src":"assets/img/nature/nature-22.jpg","thumb":"assets/img/nature/thumbs/nature-22.jpg","w":1600,"h":1065},
     {"src":"assets/img/nature/nature-23.jpg","thumb":"assets/img/nature/thumbs/nature-23.jpg","w":1600,"h":1061},
-    {"src":"assets/img/nature/nature-24.jpg","thumb":"assets/img/nature/thumbs/nature-24.jpg","w":1600,"h":1066}
+    {"src":"assets/img/nature/nature-24.jpg","thumb":"assets/img/nature/thumbs/nature-24.jpg","w":1600,"h":1066},
+    {"src":"assets/img/nature/nature-25.jpg","thumb":"assets/img/nature/thumbs/nature-25.jpg","w":1600,"h":1065}
   ]
 }
