@@ -285,6 +285,8 @@ main { padding-top: 70px; }
 .page p { font-size: 15px; color: #333; margin: 0 0 18px; }
 .page a.link { border-bottom: 1px solid var(--line); }
 .page a.link:hover { border-color: var(--fg); }
+.page-photo { margin: 54px 0 0; }
+.page-photo img { display: block; width: 100%; height: auto; }
 
 /* ---- contact form ---- */
 .page--contact { max-width: 720px; }
