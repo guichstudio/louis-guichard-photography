@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketchbook · Louis Guichard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" data-site-name>Louis Guichard</a>
+    <button class="nav-toggle" aria-label="Menu">Menu</button>
+    <nav class="site-nav"></nav>
+  </header>
+
+  <main>
+    <section class="sketchbook">
+      <div class="gallery-head">
+        <h1>Sketchbook</h1>
+        <p>Drawn on the road</p>
+      </div>
+
+      <div class="sb-stage" id="sb-stage">
+        <div class="sb-track" id="sb-track"></div>
+        <button class="sb-arrow sb-prev" aria-label="Previous page">&#8249;</button>
+        <button class="sb-arrow sb-next" aria-label="Next page">&#8250;</button>
+      </div>
+
+      <div class="sb-meta">
+        <span class="sb-caption" id="sb-caption"></span>
+        <span class="sb-count" id="sb-count"></span>
+      </div>
+
+      <div class="sb-strip" id="sb-strip"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span data-year></span> <span data-site-name>Louis Guichard</span>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/sketchbook.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

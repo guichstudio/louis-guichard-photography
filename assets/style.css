@@ -386,6 +386,124 @@ main { padding-top: 70px; }
   .lb-prev { left: 6px; } .lb-next { right: 6px; }
 }
 
+/* ===================================================== */
+/* SKETCHBOOK (carnet.html)                              */
+/* ===================================================== */
+.sketchbook { padding-bottom: 70px; }
+
+.sb-stage {
+  position: relative;
+  overflow: hidden;
+  height: min(74vh, 58vw);
+  min-height: 300px;
+  touch-action: pan-y;
+  cursor: grab;
+  -webkit-user-select: none; user-select: none;
+}
+.sb-stage.dragging { cursor: grabbing; }
+
+.sb-track { position: relative; height: 100%; }
+
+/* spreads are stacked: page changes are a cross-fade, not a slide */
+.sb-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(10px, 4vw, 60px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .5s var(--ease), visibility 0s linear .5s;
+}
+.sb-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s var(--ease), visibility 0s;
+}
+.sb-stage.dragging .sb-slide.active { opacity: .55; transition: opacity .15s var(--ease); }
+.sb-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+/* arrows: quiet until the stage is hovered */
+.sb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px; height: 66px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--fg);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+}
+.sb-prev { left: 4px; }
+.sb-next { right: 4px; }
+.sb-stage:hover .sb-arrow { opacity: .45; }
+.sb-arrow:hover { opacity: 1 !important; }
+
+.sb-meta {
+  max-width: var(--maxw);
+  margin: 22px auto 0;
+  padding: 0 24px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sb-caption { transition: opacity .3s var(--ease); }
+
+.sb-strip {
+  position: relative; /* so thumb.offsetLeft is measured inside the strip */
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 26px 24px 6px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.sb-strip::-webkit-scrollbar { display: none; }
+.sb-strip button {
+  flex: 0 0 auto;
+  width: 78px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+.sb-strip img {
+  width: 100%;
+  height: auto;
+  opacity: .38;
+  transition: opacity .3s var(--ease);
+}
+.sb-strip button:hover img { opacity: .75; }
+.sb-strip button.active img { opacity: 1; }
+
+@media (max-width: 640px) {
+  .sketchbook { padding-bottom: 40px; }
+  .sb-stage { height: min(62vh, 82vw); }
+  .sb-arrow { display: none; }
+  .sb-meta { padding: 0 16px; font-size: 10px; }
+  .sb-strip { padding: 20px 16px 6px; gap: 8px; }
+  .sb-strip button { width: 62px; }
+}
+
 /* ---------- footer ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -419,6 +537,12 @@ main { padding-top: 70px; }
 
 @media (max-width: 900px) {
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+/* seven nav items no longer fit beside the brand on narrow desktops */
+@media (min-width: 641px) and (max-width: 980px) {
+  .site-header { padding: 22px 20px; }
+  .site-nav { gap: 15px; }
+  .site-nav a { letter-spacing: .12em; }
 }
 @media (max-width: 520px) {
   .gallery { grid-template-columns: 1fr; gap: 6px; padding: 8px 8px 60px; }

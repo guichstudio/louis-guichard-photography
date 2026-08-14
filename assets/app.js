@@ -4,10 +4,12 @@
   var SITE = window.SITE || {};
   var PROJECTS = window.PROJECTS || [];
   var GALLERIES = window.GALLERIES || {};
+  var SKETCHBOOK = window.SKETCHBOOK || [];
 
   /* ---------- shared navigation (single source) ---------- */
   var NAV = [
     { href: "work.html", label: "Work" },
+    { href: "carnet.html", label: "Sketchbook" },
     { href: "about.html", label: "About" },
     { href: "exhibitions.html", label: "Exhibitions" },
     { href: "press.html", label: "Press" },
@@ -177,6 +179,131 @@
     document.body.style.overflow = "";
   }
 
+  /* ---------- SKETCHBOOK (carnet.html) ---------- */
+  function renderSketchbook() {
+    var track = document.getElementById("sb-track");
+    if (!track || !SKETCHBOOK.length) return;
+    var stage = document.getElementById("sb-stage");
+    var strip = document.getElementById("sb-strip");
+    var capEl = document.getElementById("sb-caption");
+    var cntEl = document.getElementById("sb-count");
+    var last = SKETCHBOOK.length - 1;
+    var slides = [], frames = [], thumbs = [], index = 0;
+
+    SKETCHBOOK.forEach(function (p, i) {
+      var slide = document.createElement("div");
+      slide.className = "sb-slide";
+      var img = document.createElement("img");
+      img.alt = "Sketchbook page " + (i + 1);
+      img.decoding = "async";
+      img.draggable = false;
+      slide.appendChild(img);
+      track.appendChild(slide);
+      slides.push(img);
+      frames.push(slide);
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Page " + (i + 1));
+      var th = document.createElement("img");
+      th.src = p.thumb; th.alt = ""; th.loading = "lazy"; th.decoding = "async"; th.draggable = false;
+      btn.appendChild(th);
+      btn.addEventListener("click", function () { go(i); });
+      strip.appendChild(btn);
+      thumbs.push(btn);
+    });
+
+    // only the current spread and its neighbours are fetched
+    function preload(i) {
+      for (var k = i - 1; k <= i + 1; k++) {
+        if (slides[k] && !slides[k].getAttribute("src")) slides[k].src = SKETCHBOOK[k].src;
+      }
+    }
+    function go(i) {
+      index = Math.max(0, Math.min(last, i));
+      preload(index);
+      frames.forEach(function (f, k) { f.classList.toggle("active", k === index); });
+      if (capEl) capEl.textContent = SKETCHBOOK[index].caption || "";
+      if (cntEl) cntEl.textContent = pad(index + 1) + " / " + pad(SKETCHBOOK.length);
+      thumbs.forEach(function (b, k) { b.classList.toggle("active", k === index); });
+      var b = thumbs[index];
+      if (b && strip.scrollWidth > strip.clientWidth) {
+        var max = strip.scrollWidth - strip.clientWidth;
+        var to = b.offsetLeft - (strip.clientWidth - b.offsetWidth) / 2;
+        glide(strip, Math.max(0, Math.min(max, to)));
+      }
+    }
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+    // hand-rolled smooth scroll: scroll-behavior isn't reliable everywhere
+    var glideId = 0;
+    function glide(el, to) {
+      var from = el.scrollLeft, span = to - from, start = 0;
+      cancelAnimationFrame(glideId);
+      if (Math.abs(span) < 1) return;
+      glideId = requestAnimationFrame(function tick(t) {
+        if (!start) start = t;
+        var p = Math.min(1, (t - start) / 420);
+        el.scrollLeft = from + span * (1 - Math.pow(1 - p, 3));
+        if (p < 1) glideId = requestAnimationFrame(tick);
+      });
+    }
+
+    /* --- swipe: the gesture picks the page, the change itself is a fade --- */
+    var tracking = false, dimming = false, startX = 0, startY = 0, dx = 0;
+
+    stage.addEventListener("pointerdown", function (e) {
+      if (e.button) return;
+      tracking = true; dimming = false; dx = 0;
+      startX = e.clientX; startY = e.clientY;
+    });
+
+    window.addEventListener("pointermove", function (e) {
+      if (!tracking) return;
+      var mx = e.clientX - startX, my = e.clientY - startY;
+      if (!dimming) {
+        if (Math.abs(mx) < 8 && Math.abs(my) < 8) return;
+        if (Math.abs(my) > Math.abs(mx)) { endDrag(true); return; } // let the page scroll
+        dimming = true;
+        stage.classList.add("dragging");
+        if (stage.setPointerCapture) { try { stage.setPointerCapture(e.pointerId); } catch (err) {} }
+      }
+      dx = mx;
+    });
+
+    function endDrag(cancel) {
+      if (!tracking) return;
+      tracking = false;
+      stage.classList.remove("dragging");
+      var moved = cancel ? 0 : dx;
+      var threshold = Math.min(90, stage.clientWidth * .08);
+      dx = 0;
+      if (moved < -threshold) go(index + 1);
+      else if (moved > threshold) go(index - 1);
+    }
+    window.addEventListener("pointerup", function () { endDrag(); });
+    window.addEventListener("pointercancel", function () { endDrag(true); });
+
+    // a click that didn't drag opens the full-size view
+    stage.addEventListener("click", function (e) {
+      if (e.target.closest(".sb-arrow")) return;
+      if (Math.abs(e.clientX - startX) > 6 || Math.abs(e.clientY - startY) > 6) return;
+      currentImages = SKETCHBOOK;
+      openLightbox(index);
+    });
+
+    stage.querySelector(".sb-prev").addEventListener("click", function () { go(index - 1); });
+    stage.querySelector(".sb-next").addEventListener("click", function () { go(index + 1); });
+
+    document.addEventListener("keydown", function (e) {
+      if (lb && lb.classList.contains("open")) return;
+      if (e.key === "ArrowLeft") go(index - 1);
+      else if (e.key === "ArrowRight") go(index + 1);
+    });
+
+    go(0);
+  }
+
   /* ---------- image protection (deterrent, like Squarespace) ---------- */
   function initProtection() {
     // Block the right-click / long-press menu over any photo or its cover layer.
@@ -264,5 +391,6 @@
     initContactForm();
     renderWork();
     renderGallery();
+    renderSketchbook();
   });
 })();
