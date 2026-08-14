@@ -285,6 +285,23 @@ main { padding-top: 70px; }
 .page p { font-size: 15px; color: #333; margin: 0 0 18px; }
 .page a.link { border-bottom: 1px solid var(--line); }
 .page a.link:hover { border-color: var(--fg); }
+/* ---- press list ---- */
+.press-list { list-style: none; margin: 34px 0 40px; padding: 0; }
+.press-list li {
+  display: flex; align-items: baseline; gap: 18px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+.press-list li:last-child { border-bottom: 1px solid var(--line); }
+.page .press-list a.link { flex: 1; color: #333; border-bottom: 0; }
+.page .press-list a.link:hover { color: var(--fg); }
+.press-date {
+  flex: none;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted);
+}
+
 .page-photo { margin: 54px 0 0; }
 .page-photo img { display: block; width: 100%; height: auto; }
 
