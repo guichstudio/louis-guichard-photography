@@ -13,8 +13,9 @@ meta = {
     "on-the-road":     ("On the Road", "Setting out on adventures"),
     "hawaii":          ("Hawaii", "Pacific light"),
     "nature":          ("Nature", "Wild and quiet"),
+    "nyc-polaroid":    ("NYC Polaroid", "Instant film, New York City"),
 }
-order = ["light", "black-and-white", "life", "on-the-road", "hawaii", "nature"]
+order = ["nyc-polaroid", "light", "black-and-white", "life", "on-the-road", "hawaii", "nature"]
 
 # Hand-picked covers (override the default first-image cover)
 cover_overrides = {
@@ -24,17 +25,24 @@ cover_overrides = {
     "on-the-road":     "assets/img/covers/on-the-road.jpg",
     "hawaii":          "assets/img/covers/hawaii.jpg",
     "nature":          "assets/img/covers/nature.jpg",
+    "nyc-polaroid":    "assets/img/covers/nyc-polaroid.jpg",
 }
+
+# Galleries whose photos keep their own shape instead of the 3:2 grid crop
+layouts = {"nyc-polaroid": "polaroid"}
 
 projects = []
 for slug in order:
     imgs = man.get(slug, [])
     title, sub = meta[slug]
     cover = cover_overrides.get(slug) or (imgs[0]["src"] if imgs else "")
-    projects.append({
+    entry = {
         "slug": slug, "title": title, "subtitle": sub,
         "cover": cover, "count": len(imgs),
-    })
+    }
+    if slug in layouts:
+        entry["layout"] = layouts[slug]
+    projects.append(entry)
 
 site = {
     "name": "Louis Guichard",

@@ -95,6 +95,9 @@
     if (h) h.textContent = project.title;
     if (s) s.textContent = project.subtitle || "";
 
+    // some series (polaroids) keep their own shape instead of the 3:2 grid crop
+    if (project.layout) wrap.classList.add("gallery--" + project.layout);
+
     currentImages = imgs;
     imgs.forEach(function (im, i) {
       var fig = document.createElement("figure");

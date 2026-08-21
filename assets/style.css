@@ -252,6 +252,11 @@ main { padding-top: 70px; }
   -webkit-user-select: none;
   pointer-events: none;
 }
+/* polaroid series: keep the frame, no 3:2 crop */
+.gallery--polaroid { max-width: 1180px; gap: 22px; }
+.gallery--polaroid figure { background: transparent; }
+.gallery--polaroid img { aspect-ratio: auto; object-fit: contain; }
+
 .gallery img.in { opacity: 1; transform: none; }
 .gallery figure:hover img.in { opacity: .82; }
 
